@@ -1,5 +1,5 @@
 //Modules
-const { Client, Collection } = require("discord.js");
+const { Client, Collection, MessageEmbed } = require("discord.js");
 const config = require("./config.json"); 
 const prefix = (config.prefix); 
 const fs = require("fs"); 
@@ -28,7 +28,16 @@ client.on("message", async message => {
     if (message.author.bot) return;
     if (!message.guild) return; 
 
-    if(!message.content.startsWith(prefix)&& message.content.startsWith(client.user.id)) return message.reply(`Mój prefix: **\`${prefix}\`**`); 
+    if ( 
+      (message.content === `<@${client.user.id}>` || message.content === `<@!${client.user.id}>`) 
+    ) {
+      const embed = new MessageEmbed()
+        .setTitle('**No i po co mnie pingujesz.**')
+        .setThumbnail('https://cdn.discordapp.com/emojis/818868691595689995.png?v=1')
+        .setDescription(`Skoro mnie pingłeś to urzyj komendy \`${prefix}pomoc.\` Tam masz ciekawsze rzeczy`)
+        .setColor(message.member.displayHexColor);
+      message.channel.send(embed);
+    }
     if (!message.content.startsWith(prefix)) return; 
     
     const args = message.content.slice(prefix.length).trim().split(/ +/g); 

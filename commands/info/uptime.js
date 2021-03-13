@@ -3,7 +3,8 @@ module.exports = {
     
     name: "uptime", 
     category: "info", 
-    cooldown: 10, 
+    cooldown: 10,
+    aliases: ['up'], 
     usage: "uptime", 
     description: "Zwraca czas, przez jaki bot jest online", 
 
