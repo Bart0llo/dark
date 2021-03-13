@@ -1,33 +1,80 @@
-const Discord = require('discord.js');
-const client = new Discord.Client();
-const config = require('./config.json')
+//Modules
+const { Client, Collection } = require("discord.js");
+const config = require("./config.json"); 
+const prefix = (config.prefix); 
+const fs = require("fs"); 
 
-client.on('ready', () => {
-  console.log(`Logged in as!`);
-});
+const client = new Client({
+    ws: { properties: { $browser: "Discord Android" }},
+    disableEveryone: true,  
+    partials: ['MESSAGE', 'CHANNEL', 'REACTION'] 
+}); 
 
-client.on('message', async msg => {
-    if (msg.content === '>nakladka') {
-        msg.channel.send('**Generowanie...**')
-    const Canvas = require('canvas')
-    const canvas = Canvas.createCanvas(1000, 1000);
-    const ctx = canvas.getContext('2d');
+client.commands = new Collection(); 
+client.aliases = new Collection(); 
+const cooldowns = new Collection(); 
+
+client.categories = fs.readdirSync("./commands/"); 
+
+["command"].forEach(handler => {
+    require(`./handlers/command`)(client);
+}); 
+const eventhandler = require("./handlers/events"); 
+eventhandler(client); 
 
 
+client.on("message", async message => {
 
-    const background = await Canvas.loadImage(msg.author.displayAvatarURL({dynamic: true, format: 'png', size: 2048}));    
-    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+    if (message.author.bot) return;
+    if (!message.guild) return; 
 
-  
-    const avatar = await Canvas.loadImage('./nakladka.png');
-    ctx.drawImage(avatar, 0, 0, 1000, 1000);
-
-    const koniec = new Discord.MessageAttachment(canvas.toBuffer(), 'nakładka.png');
+    if(!message.content.startsWith(prefix)&& message.content.startsWith(client.user.id)) return message.reply(`Mój prefix: **\`${prefix}\`**`); 
+    if (!message.content.startsWith(prefix)) return; 
+    
+    const args = message.content.slice(prefix.length).trim().split(/ +/g); 
+    const cmd = args.shift().toLowerCase(); 
+    
+    if (cmd.length === 0) return; 
+    
+    let command = client.commands.get(cmd); 
+    if (!command) command = client.commands.get(client.aliases.get(cmd)); 
 
    
+    if (command) 
+    {
+        if (!cooldowns.has(command.name)) { 
+            cooldowns.set(command.name, new Collection());
+        }
+        
+        const now = Date.now(); 
+        const timestamps = cooldowns.get(command.name); 
+        const cooldownAmount = (command.cooldown || 1) * 1000; 
+      
+        if (timestamps.has(message.author.id)) { 
+          const expirationTime = timestamps.get(message.author.id) + cooldownAmount; 
+      
+          if (now < expirationTime) { 
+            const timeLeft = (expirationTime - now) / 1000; 
+            return message.reply( 
+              `Poczekaj jeszcze ${timeLeft.toFixed(1)} sekund zanim użyjesz \`${command.name}\`.`
+            ); 
+          }
+        }
+      
+        timestamps.set(message.author.id, now); 
+        setTimeout(() => timestamps.delete(message.author.id), cooldownAmount); 
+      try{
+        command.run(client, message, args, message.author, args.join(" "), prefix); 
+      }catch (error){
+        console.log(error)
+        return message.reply("Coś poszło nie tak podczas używania: `" + command.name + "`")
+      }
+    } 
+    else 
+    return message.reply(`Nie pradiłowe polecenie, spróbuj: **\`${prefix}help\`**`)
 
-    msg.channel.send('**Wygenerowano!**', koniec)
-    }
+    
+    
 });
 
-client.login(config.token);
+client.login(config.token); 
