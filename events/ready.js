@@ -2,8 +2,8 @@
 module.exports = client => {
     console.log(`Bot ${client.user.tag} jest aktywny!`); 
     const activities = [
-        { name: '>nakładka | Dzięki nakładce wspierasz nasz serwer', type: 'WATCHING' }, 
-        { name: '>pomoc', type: 'WATCHING' }
+        { name: 'd.nakładka | Dzięki nakładce wspierasz nasz serwer', type: 'WATCHING' }, 
+        { name: 'd.pomoc', type: 'WATCHING' }
       ];
     
       // Update presence
