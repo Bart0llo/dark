@@ -71,7 +71,7 @@ client.on("message", async message => {
       }
     } 
     else 
-    return message.reply(`Nie pradiłowe polecenie, spróbuj: **\`${prefix}help\`**`)
+    return message.reply(`Nie prawidłowe polecenie, spróbuj: **\`${prefix}help\`**`)
 
     
     
