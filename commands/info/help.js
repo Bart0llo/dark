@@ -2,9 +2,9 @@ const { MessageEmbed } = require("discord.js");
 const { stripIndents } = require("common-tags");
 const config = require("../../config.json");
 
-//Here the command starts
+
 module.exports = {
-    //definition
+    
         name: "pomoc", 
         category: "info", 
         aliases: ["h", "commandinfo", "help"], 
@@ -33,18 +33,21 @@ const embed = new MessageEmbed()
         return client.commands.filter(cmd => cmd.category === category)
                 .map(cmd => `\`${cmd.name}\``).join(", ")
     }
-    //get the command infostring
+    
     const info = client.categories.map(cat => stripIndents`**__${cat[0].toUpperCase() + cat.slice(1)}__**\n> ${commands(cat)}`)
     .reduce((string, category) => string + "\n" + category);
-    //sending the embed with the description
+    message.channel.startTyping();
+        setTimeout(function(){
+            message.channel.stopTyping();
     return message.channel.send(embed.setDescription(info))
+        }, 1000);
 }
 
-//function for all commands
+
 function getCMD(client,message,input){
-    const embed = new MessageEmbed() //creating a new Embed
+    const embed = new MessageEmbed() 
     const cmd = client.commands.get(input.toLowerCase()) || client.commands.get(client.aliases.get(input.toLowerCase())) //getting the command by name/alias
-    if(!cmd){ //if no cmd found return info no infos!
+    if(!cmd){ 
         return message.channel.send(embed.setColor("RED").setDescription(`Brak informacji o tym poleceniu **${input.toLowerCase()}**`));
     }
     if(cmd.name) embed.addField("**Nazwa polecenia**", `\`${cmd.name}\``)
@@ -57,6 +60,9 @@ function getCMD(client,message,input){
         embed.addField("**Użycie**", `\`${config.prefix}${cmd.usage}\``);
         embed.setFooter("Składnia: <> = wymagane, [] = optionalne"); 
     }
-    //send the new Embed
+    message.channel.startTyping();
+        setTimeout(function(){
+            message.channel.stopTyping();
     return message.channel.send(embed.setColor(message.member.displayHexColor))
+        }, 1000);
 }

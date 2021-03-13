@@ -29,6 +29,10 @@ const koniec = new Discord.MessageAttachment(canvas.toBuffer(), 'nakładka.png')
 
 
 message.channel.send(koniec)
+message.channel.startTyping();
+        setTimeout(function(){
+            message.channel.stopTyping();
 wiad.edit('**Daj mi chwilę, wysyłam!**', koniec)
+        }, 1000)
     }
 }

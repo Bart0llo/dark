@@ -1,4 +1,4 @@
-//Here the command starts
+
 module.exports = {
     
     name: "ping", 
