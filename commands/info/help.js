@@ -54,8 +54,8 @@ function getCMD(client,message,input){
     if(cmd.description) embed.addField("**Opis**", `\`${cmd.description}\``);
 
     if(cmd.aliases) embed.addField("**Aliasy**", `\`${cmd.aliases.map(a => `${a}`).join("\`, \`")}\``)
-    if(cmd.cooldown) embed.addField("**Cooldown**", `\`${cmd.cooldown} Sekund\``)
-        else embed.addField("**Cooldown**", `\`1 Sekund\``)
+    if(cmd.cooldown) embed.addField("**Cooldown**", `\`${cmd.cooldown} Sekundy\``)
+        else embed.addField("**Cooldown**", `\`1 Sekunda\``)
     if(cmd.usage){
         embed.addField("**Użycie**", `\`${config.prefix}${cmd.usage}\``);
         embed.setFooter("Składnia: <> = wymagane, [] = optionalne"); 
