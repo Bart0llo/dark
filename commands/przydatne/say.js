@@ -1,3 +1,4 @@
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "say", 
@@ -12,6 +13,11 @@ module.exports = {
         if(message.member.hasPermission('ADMINISTRATOR')) {
         message.delete();
         message.channel.send(text) 
+        }
+        else {
+            const embed = new MessageEmbed()
+            .setDescription('**Nie dla psa**')
+            message.channel.send(embed)
         }
     }
 }
