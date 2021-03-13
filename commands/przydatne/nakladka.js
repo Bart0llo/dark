@@ -31,7 +31,7 @@ message.channel.startTyping();
         setTimeout(function(){
             message.channel.stopTyping();
 message.channel.send(koniec)
-wiad.edit('**Daj mi chwilę, wysyłam!**', koniec)
+wiad.edit('**Trzymaj!**', koniec)
         }, 3000)
     }
 }
