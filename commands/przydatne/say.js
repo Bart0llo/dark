@@ -9,7 +9,9 @@ module.exports = {
 
  
     run: async (client, message, args, user, text, prefix) => {	
+        if(message.member.hasPermission('ADMINISTRATOR')) {
         message.delete();
         message.channel.send(text) 
+        }
     }
 }
