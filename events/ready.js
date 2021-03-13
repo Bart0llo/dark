@@ -13,7 +13,7 @@ module.exports = client => {
     
       // Update activity every 30 seconds
       setInterval(() => {
-        activities[2] = { name: `${client.guilds.cache.size} serwerów`, type: 'WATCHING' }; // Update server count
+        activities[2] = { name: `Huh jaki to świat jest piękny`, type: 'WATCHING' }; // Update server count
         activities[3] = { name: `${client.users.cache.size} osób`, type: 'WATCHING' }; // Update user count
         if (activity > 3) activity = 0;
         client.user.setActivity(activities[activity]);
