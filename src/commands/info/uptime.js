@@ -1,3 +1,7 @@
+// Dark.Com - Bot
+// Author: Bartuś - https://github.com/Bart0llo/
+//
+// Copyright 2021, Bartuś
 module.exports = {
     name: "uptime", 
     category: "info", 

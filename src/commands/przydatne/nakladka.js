@@ -1,3 +1,7 @@
+// Dark.Com - Bot
+// Author: Bartuś - https://github.com/Bart0llo/
+//
+// Copyright 2021, Bartuś
 const Discord =  require('discord.js')
 const { MessageEmbed } = require("discord.js")
 module.exports = {
