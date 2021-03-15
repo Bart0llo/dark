@@ -1,15 +1,19 @@
-const fs = require("fs"); 
+// Dark.Com - Bot
+// Author: Bartuś - https://github.com/Bart0llo/
+//
+// Copyright 2021, Bartuś
+const fs = require("fs");  
 const ascii = require("ascii-table"); 
 
 let table = new ascii("Events"); 
-table.setHeading("Events", "Status");
+table.setHeading("Events", "Load status");
 
 module.exports = async (client) => {
-    let theevents; 
-    fs.readdirSync("./events/").forEach(file => { 
-        theevents =  fs.readdirSync(`./events/`).filter(file => file.endsWith(".js")); 
-        fs.readdir("./events/", (err, files) => { 
-            if (err) return console.error(err); 
+    let theevents; //global variable
+    fs.readdirSync("./src/events/").forEach(file => { //reading each command
+        theevents =  fs.readdirSync(`./src/events/`).filter(file => file.endsWith(".js")); 
+        fs.readdir("./src/events/", (err, files) => { 
+            if (err) return console.error(err);
                     const event = require(`../events/${file}`); 
                     let eventName = file.split(".")[0]; 
                     theevents = eventName; 
@@ -26,5 +30,5 @@ module.exports = async (client) => {
         }
     }
     console.log(table.toString()); 
-	console.log("Logowanie do bota.."); 
+	console.log(`Statystyki : \n\nBot jest na ${client.guilds.cache.size} serwerach. \nW sumie ${client.users.cache.size} osób.`)
 }

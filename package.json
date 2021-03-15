@@ -1,7 +1,7 @@
 {
-  "name": "discordjs-bot-template",
-  "version": "1.0.0",
-  "description": "",
+  "name": "dark.com-beta",
+  "version": "2.0.0",
+  "description": "Werjsa beta bota Dark.Com",
   "main": "index.js",
   "dependencies": {
     "ascii-table": "^0.0.9",
@@ -14,8 +14,17 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
-  "author": "Tomato#6966",
-  "license": "ISC"
+  "author": "Bartuś#0940",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bart0llo/dark.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bart0llo/dark/issues"
+  },
+  "homepage": "https://github.com/Bart0llo/dark#readme"
 }
