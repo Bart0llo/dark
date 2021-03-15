@@ -3,7 +3,7 @@ module.exports = {
     name: "link", 
     category: "przydatne", 
     aliases: ["url", "n"], 
-    cooldown: 2, 
+    cooldown: 5, 
     usage: "link <url>", 
     description: "Skracam link", 
 

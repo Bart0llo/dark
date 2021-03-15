@@ -4,7 +4,7 @@ module.exports = {
     name: "say", 
     category: "przydatne", 
     aliases: ["say", "powiedz", "napisz"], 
-    cooldown: 15, 
+    cooldown: 5, 
     usage: "say <Tektst>", 
     description: "Bot wysyła twoją wiadomość", 
 
