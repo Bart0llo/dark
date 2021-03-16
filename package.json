@@ -7,6 +7,7 @@
     "ascii-table": "^0.0.9",
     "canvas": "^2.7.0",
     "common-tags": "^1.8.0",
+    "discord-image-generation": "^1.4.7",
     "discord.js": "^12.5.1",
     "got": "^11.8.1",
     "nodemon": "^2.0.7"
