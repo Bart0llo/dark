@@ -45,7 +45,7 @@ module.exports = async (client) => {
           
           setInterval(() => {
             activities[2] = { name: `@Dark.Com`, type: 'WATCHING' }; 
-            activities[3] = { name: `${client.users.cache.size} osób`, type: 'WATCHING' }; 
+            activities[3] = { name: `Odwiedziło nas: ${client.users.cache.size} osób`, type: 'WATCHING' }; 
             if (activity > 3) activity = 0;
             client.user.setActivity(activities[activity]);
             activity++;
