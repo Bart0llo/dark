@@ -26,11 +26,9 @@ module.exports = {
               .setDescription(
                 `Czas oczekiwania bota - **${Math.round(
                   (m.createdAt - message.createdAt) / client.ws.ping
-                )}**ms \nCzas oczekiwania bota - **${Math.round(
-                  m.createdAt - message.createdAt
                 )}**ms \nCzas oczekiwania API - **${Math.round(
                   client.ws.ping
-                )}`
+                )}**`
               )
               .setColor("#8e00ff");
               
