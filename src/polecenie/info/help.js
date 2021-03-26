@@ -1,4 +1,4 @@
-help.js
+
 // Dark.Com - Bot
 // Author: Bartuś - https://github.com/Bart0llo/
 //
