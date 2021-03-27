@@ -23,7 +23,9 @@ module.exports = (client, message) => {
         const days = Math.floor(ms / (24*60*60*1000) % 60).toString();
         return `\`${days} Dni\`, \`${hrs} Godzin\`, \`${min} Minut\`, \`${sec} Sekund\``
     }
-    message.channel.send('Ładowanie').then (async (m) =>{
+        const em = new MessageEmbed()
+    .setDescription('Ładowanie')
+    message.channel.send(em).then (async (m) =>{
       const embed = new MessageEmbed()
       .setAuthor(`Oznaczono bota!`, "https://cdn.discordapp.com/emojis/822198251264409610.png?v=1")
       .setDescription(`\n> <a:witajcie:822198468436689020> **Witaj!** Jestem prywatnym botem Serwera **Dark.Com**\n\n>  <:kolko:821871660378095636> *Mój prefix na tym serwerze to* **${prefix}**\n> \n> <:kanal:821871583155978313> *Aby uzyskać pomoc, wpisz*: ***${prefix}pomoc*** \n> \n> <a:feavy_ladowanie:821871454270390272> *Mój obecny ping wynosi*: **${Math.round((m.createdAt - message.createdAt) / client.ws.ping)}** \n\n>  <:check:821871647064981516> *Statystyki:*\n> \n>  *💚 Serwery*: ** ${client.guilds.cache.size}** \n> \n> *👥 Użytkownicy:* ** ${client.users.cache.size}** \n> \n> *🔧 Jestem aktwyny od:* **${duration(client.uptime)}**`)
