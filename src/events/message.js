@@ -14,19 +14,28 @@ module.exports = (client, message) => {
     if (!message.guild) return; 
 
     if ( 
-  (message.content === `<@${client.user.id}>` || message.content === `<@!${client.user.id}>`) 
-) {
-  const embed = new MessageEmbed()
-  .setAuthor(`Oznaczono bota!`, "https://cdn.discordapp.com/emojis/822198251264409610.png?v=1")
-Description("\n> <a:witajcie:822198468436689020> **Witaj!** Jestem prywatnym botem Serwera **Dark.Com**\n\n>  <:kolko:821871660378095636> *Mój prefix na tym serwerze to* `"+prefix+"`\n> \n> <:kanal:821871583155978313> *Aby uzyskać pomoc, wpisz:* ***"+prefix+"pomoc!***\n> \n> <a:feavy_ladowanie:821871454270390272> *Mój obecny ping wynosi:*  ***`"+client.ws.ping+"`***\n\n>  <:check:821871647064981516> *Statystyki:*\n> \n> `💚` *Serwery:* ***`"+client.guilds.cache.size+"`***\n> \n> `👥` *Użytkownicy:* ***`"+client.users.cache.size+"`***\n> \n> `🔧` *Uptime sprawdzisz pod komendą* `"+prefix+"uptime`")
-Footer(`Wykonałem dla: ${message.author.tag}`, message.author.displayAvatarURL({dynamic:true}))
-    .setColor("#00FF00");
-    message.channel.startTyping();
-    setTimeout(function(){
-        message.channel.stopTyping();
-  message.channel.send(embed);
-    }, 1000 )
-}
+      (message.content === `<@${client.user.id}>` || message.content === `<@!${client.user.id}>`) 
+    ) {
+      function duration(ms) { 
+        const sec = Math.floor(ms / 1000 % 60).toString();
+        const min = Math.floor(ms / (60*1000) % 60).toString();
+        const hrs = Math.floor(ms / (60*60*1000) % 60).toString();
+        const days = Math.floor(ms / (24*60*60*1000) % 60).toString();
+        return `\`${days} Dni\`, \`${hrs} Godzin\`, \`${min} Minut\`, \`${sec} Sekund\``
+    }
+    message.channel.send('Ładowanie').then (async (m) =>{
+      const embed = new MessageEmbed()
+      .setAuthor(`Oznaczono bota!`, "https://cdn.discordapp.com/emojis/822198251264409610.png?v=1")
+      .setDescription(`\n> <a:witajcie:822198468436689020> **Witaj!** Jestem prywatnym botem Serwera **Dark.Com**\n\n>  <:kolko:821871660378095636> *Mój prefix na tym serwerze to* **${prefix}**\n> \n> <:kanal:821871583155978313> *Aby uzyskać pomoc, wpisz*: ***${prefix}pomoc*** \n> \n> <a:feavy_ladowanie:821871454270390272> *Mój obecny ping wynosi*: **${Math.round((m.createdAt - message.createdAt) / client.ws.ping)}** \n\n>  <:check:821871647064981516> *Statystyki:*\n> \n>  *💚 Serwery*: ** ${client.guilds.cache.size}** \n> \n> *👥 Użytkownicy:* ** ${client.users.cache.size}** \n> \n> *🔧 Jestem aktwyny od:* **${duration(client.uptime)}**`)
+      .setFooter(`Wykonałem dla: ${message.author.tag}`, message.author.displayAvatarURL({dynamic:true}))
+        .setColor("#00FF00");
+        message.channel.startTyping();
+        setTimeout(function(){
+            message.channel.stopTyping();
+      m.edit(embed);
+        }, 1000 )
+      })
+    }
     if (!message.content.startsWith(prefix)) return; 
     
     const args = message.content.slice(prefix.length).trim().split(/ +/g); 
