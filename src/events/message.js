@@ -14,18 +14,19 @@ module.exports = (client, message) => {
     if (!message.guild) return; 
 
     if ( 
-      (message.content === `<@${client.user.id}>` || message.content === `<@!${client.user.id}>`) 
-    ) {
-      const embed = new MessageEmbed()
-        .setTitle('**<:PeepoPing:815349357058064397>No i po co mnie pingujesz.**')
-        .setDescription(`Skoro mnie pingłeś to użyj komendy \`${prefix}pomoc\` Tam masz ciekawsze rzeczy<:peepopog:815324694927900705>`)
-        .setColor(message.member.displayHexColor);
-        message.channel.startTyping();
-        setTimeout(function(){
-            message.channel.stopTyping();
-      message.channel.send(embed);
-        }, 1000 )
-    }
+  (message.content === `<@${client.user.id}>` || message.content === `<@!${client.user.id}>`) 
+) {
+  const embed = new MessageEmbed()
+  .setAuthor(`Oznaczono bota!`, "https://cdn.discordapp.com/emojis/822198251264409610.png?v=1")
+Description("\n> <a:witajcie:822198468436689020> **Witaj!** Jestem prywatnym botem Serwera **Dark.Com**\n\n>  <:kolko:821871660378095636> *Mój prefix na tym serwerze to* `"+prefix+"`\n> \n> <:kanal:821871583155978313> *Aby uzyskać pomoc, wpisz:* ***"+prefix+"pomoc!***\n> \n> <a:feavy_ladowanie:821871454270390272> *Mój obecny ping wynosi:*  ***`"+client.ws.ping+"`***\n\n>  <:check:821871647064981516> *Statystyki:*\n> \n> `💚` *Serwery:* ***`"+client.guilds.cache.size+"`***\n> \n> `👥` *Użytkownicy:* ***`"+client.users.cache.size+"`***\n> \n> `🔧` *Uptime sprawdzisz pod komendą* `"+prefix+"uptime`")
+Footer(`Wykonałem dla: ${message.author.tag}`, message.author.displayAvatarURL({dynamic:true}))
+    .setColor("#00FF00");
+    message.channel.startTyping();
+    setTimeout(function(){
+        message.channel.stopTyping();
+  message.channel.send(embed);
+    }, 1000 )
+}
     if (!message.content.startsWith(prefix)) return; 
     
     const args = message.content.slice(prefix.length).trim().split(/ +/g); 
