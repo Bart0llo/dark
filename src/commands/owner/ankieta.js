@@ -16,7 +16,7 @@ let comment = args.join(" ");
     .setTitle("**Ankieta**")
     .setColor("RANDOM")
     .setDescription(comment)
-    .setFooter(`Zaznasz reakcję!`)
+    .setFooter(`Zaznacz reakcję!`)
     .setTimestamp()
 
     let channel = client.channels.cache.get("795774501345689684");
