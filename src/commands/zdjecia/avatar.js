@@ -32,7 +32,10 @@ module.exports = {
   
             timestamp: new Date(),
 
-           .setFooter(`Wykonałem dla: ${message.author.tag}`, message.author.displayAvatarURL( ({dynamic: true})))
+                      footer: {
+              text: message.guild.name,
+              icon_url: message.guild.iconURL(),
+
   
             },
           },
