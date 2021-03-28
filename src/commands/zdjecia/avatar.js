@@ -43,7 +43,7 @@ module.exports = {
       } else if (!args[0]) {
         message.channel.send({
           embed: {
-            title: `<:yes:823695577288015902> Profilowe ${user.user.username}`,
+            title: `Profilowe ${user.user.username}`,
   
             color: 0xffefd5,
   
