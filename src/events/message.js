@@ -24,7 +24,7 @@ module.exports = (client, message) => {
         return `\`${days} Dni\`, \`${hrs} Godzin\`, \`${min} Minut\`, \`${sec} Sekund\``
     }
         const em = new MessageEmbed()
-    .setDescription('Ładowanie')
+    .setDescription('<a:loading:824403112907374602> Ładowanie...')
     message.channel.send(em).then (async (m) =>{
       const embed = new MessageEmbed()
       .setAuthor(`Oznaczono bota!`, "https://cdn.discordapp.com/emojis/822198251264409610.png?v=1")
