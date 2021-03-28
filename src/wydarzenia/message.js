@@ -28,7 +28,7 @@ module.exports = (client, message) => {
     message.channel.send(em).then (async (m) =>{
       const embed = new MessageEmbed()
       .setAuthor(`Oznaczono bota!`, "https://cdn.discordapp.com/emojis/822198251264409610.png?v=1")
-      .setDescription(`\n> <a:witajcie:822198468436689020> **Witaj!** Jestem prywatnym botem Serwera **Dark.Com**\n\n>  <:kolko:821871660378095636> *Mój prefix na tym serwerze to* **${prefix}**\n> \n> <:kanal:821871583155978313> *Aby uzyskać pomoc, wpisz*: ***${prefix}pomoc*** \n> \n> <a:loading:824403112907374602> *Mój obecny ping wynosi*: **${Math.round((m.createdAt - message.createdAt) / client.ws.ping)}** \n\n>  <:check:821871647064981516> *Statystyki:*\n> \n>  *`💚` Serwery*: ** ${client.guilds.cache.size}** \n> \n> *`👥` Użytkownicy:* ** ${client.users.cache.size}** \n> \n> *`🔧` Jestem aktwyny od:* **${duration(client.uptime)}**`)
+      .setDescription(`\n> <a:witajcie:822198468436689020> **Witaj!** Jestem prywatnym botem Serwera **Dark.Com**\n\n>  <:kolko:821871660378095636> *Mój prefix na tym serwerze to* **${prefix}**\n> \n> <:kanal:821871583155978313> *Aby uzyskać pomoc, wpisz*: ***${prefix}pomoc*** \n> \n> <a:loading:824403112907374602> *Mój obecny ping wynosi*: **${Math.round((m.createdAt - message.createdAt) / client.ws.ping)}** \n\n>  <:check:821871647064981516> *Statystyki:*\n> \n>  *💚 Serwery*: ** ${client.guilds.cache.size}** \n> \n> *👥 Użytkownicy:* ** ${client.users.cache.size}** \n> \n> *🔧 Jestem aktwyny od:* **${duration(client.uptime)}**`)
       .setFooter(`Wykonałem dla: ${message.author.tag}`, message.author.displayAvatarURL({dynamic:true}))
         .setColor("#00FF00");
         message.channel.startTyping();
