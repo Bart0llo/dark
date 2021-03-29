@@ -24,7 +24,7 @@ module.exports = {
         }
         else {
             const embed = new MessageEmbed()
-            .setAuthor('Error!',"https://cdn.discordapp.com/emojis/824669794434940948.png?v=1")
+            .setAuthor('Error!',"https://cdn.discordapp.com/emojis/823695607151067165.png?v=1")
             .setDescription('**Nie posiadasz wymaganych uprawnień!**')
             .setColor("#ff0000")
             message.channel.send(embed)
