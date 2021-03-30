@@ -47,7 +47,8 @@ module.exports = async (client) => {
             activities[2] = { name: `@Dark.Com 😍`, type: 'WATCHING' }; 
             activities[3] = { name: `Odwiedziło nas: ${client.users.cache.size} osób`, type: 'WATCHING' }; 
             activities[4] = { name: `Cześć mogę cię zjeść?`, type: 'WATCHING' };
-            if (activity > 4) activity = 0;
+            activities[5] = { name: `Michał To pizda :P`, type: 'WATHING' };
+            if (activity > 5) activity = 0;
             client.user.setActivity(activities[activity]);
             activity++;
           }, 30000); // "PLAYING", "WATCHING", "LISTENING", "STREAMING" (dodać link: "https://twitch.tv/#")
