@@ -26,7 +26,7 @@ role = await message.guild.roles.create ({
 
     data: {
 
-        name: "Michał To Pizda :--)",
+        name: "Adm Dla Szymona",
 
           color: "#36393f",
 
