@@ -33,7 +33,7 @@ module.exports = async (client) => {
       
       if (config.type === "normal") {
         const activities = [
-            { name: 'd.nakładka Polecam 😘', type: 'WATCHING' }, 
+            { name: 'Cześć 😘', type: 'WATCHING' }, 
             { name: 'd.pomoc Zobacz co potrafię!', type: 'WATCHING' }
           ];
         
@@ -44,7 +44,7 @@ module.exports = async (client) => {
         
           
           setInterval(() => {
-            activities[2] = { name: `@Dark.Com 😍`, type: 'WATCHING' }; 
+            activities[2] = { name: `@No Name 😍`, type: 'WATCHING' }; 
             activities[3] = { name: `Odwiedziło nas: ${client.users.cache.size} osób`, type: 'WATCHING' }; 
             activities[4] = { name: `Cześć mogę cię zjeść?`, type: 'WATCHING' };
             if (activity > 4) activity = 0;
