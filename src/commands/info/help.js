@@ -13,7 +13,7 @@ module.exports = {
     
         name: "pomoc", 
         category: "info", 
-        aliases: ["h", "commandinfo", "help"], 
+        aliases: ["h", "help"], 
         cooldown: 5, 
         usage: "pomoc [Komenda]",
         description: "Zwraca wszystkie polecenia lub jedno określone polecenie", 
