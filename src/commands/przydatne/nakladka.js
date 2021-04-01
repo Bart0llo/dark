@@ -15,27 +15,27 @@ module.exports = {
  
     run: async (client, message, args, user, text, prefix) => {
 
-const wiad = await message.channel.send('**Generowanie...**')
-const Canvas = require('canvas')
-const canvas = Canvas.createCanvas(1000, 1000);
-const ctx = canvas.getContext('2d');
+//const wiad = await message.channel.send('**Generowanie...**')
+//const Canvas = require('canvas')
+//const canvas = Canvas.createCanvas(1000, 1000);
+//const ctx = canvas.getContext('2d');
 
 
 
-const background = await Canvas.loadImage(message.author.displayAvatarURL({dynamic: true, format: 'png', size: 2048}));    
-ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+//const background = await Canvas.loadImage(message.author.displayAvatarURL({dynamic: true, format: 'png', size: 2048}));    
+//ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
 
-const avatar = await Canvas.loadImage("./nakladka.png");
-ctx.drawImage(avatar, 0, 0, 1000, 1000);
+//const avatar = await Canvas.loadImage("./nakladka.png");
+//ctx.drawImage(avatar, 0, 0, 1000, 1000);
 
-const koniec = new Discord.MessageAttachment(canvas.toBuffer(), 'nakładka.png');
+//const koniec = new Discord.MessageAttachment(canvas.toBuffer(), 'nakładka.png');
 
-message.channel.startTyping();
-        setTimeout(function(){
-            message.channel.stopTyping();
-message.channel.send(koniec)
-wiad.edit('**Trzymaj!**', koniec)
-        }, 3000)
+//message.channel.startTyping();
+//        setTimeout(function(){
+//            message.channel.stopTyping();
+//message.channel.send(koniec)
+//wiad.edit('**Trzymaj!**', koniec)
+//        }, 3000)
     }
 }
