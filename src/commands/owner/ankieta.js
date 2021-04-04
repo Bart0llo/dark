@@ -23,8 +23,8 @@ let comment = args.join(" ");
     if(!channel) return errors.noChannel(message, "Nie znaleziono kanału.")
   
   const send = await channel.send(ideaEmbed)
-    await send.react("<:dark_yes:815350884837359675>");
-    await send.react("<:dark_spierdalaj_pan:815350905720930304>");
+    await send.react("<:VoteUp:828032799985762365>");
+    await send.react("<:VoteDown:828032827085029407>");
     message.channel.send('Ankieta wysłana');
   }
 }
