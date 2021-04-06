@@ -28,3 +28,5 @@ module.exports = {
         message.delete();
     
     })
+    }
+}
