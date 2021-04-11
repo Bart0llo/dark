@@ -31,7 +31,7 @@ module.exports = (client, message) => {
       .setDescription(`\n> <a:witajcie:822198468436689020> **Witaj!** Jestem prywatnym botem Serwera **Dark JET**\n\n>  <:kolko:821871660378095636> *Mój prefix na tym serwerze to* **${prefix}**\n> \n> <:kanal:821871583155978313> *Aby uzyskać pomoc, wpisz*: ***${prefix}pomoc*** \n> \n> <a:loading:824403112907374602> *Mój obecny ping wynosi*: **${Math.round((m.createdAt - message.createdAt) / client.ws.ping)}** \n\n>  <:check:821871647064981516> *Statystyki:*\n> \n>  *<a:aDiscord:823693464306581565> Serwery*: ** ${client.guilds.cache.size}** \n> \n> *<:member:822198810306412594> Użytkownicy:* ** ${client.users.cache.size}** \n> \n> *<:online:822197931682955274> Jestem aktwyny od:* **${duration(client.uptime)}**`)
       .setFooter(`Wykonałem dla: ${message.author.tag}`, message.author.displayAvatarURL({dynamic:true}))
         .setColor("#00FF00");
-      .ImageURL("https://cdn.discordapp.com/attachments/815017148912762890/830778037482029066/pepe.png")
+        .setThumbnail("https://cdn.discordapp.com/attachments/815017148912762890/830778037482029066/pepe.png")
         message.channel.startTyping();
         setTimeout(function(){
             message.channel.stopTyping();
