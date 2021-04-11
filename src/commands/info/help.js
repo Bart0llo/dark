@@ -24,7 +24,7 @@ module.exports = {
       const embed = new MessageEmbed()
         .setColor("#00FF00")
         .setAuthor(`Help Menu`, "https://cdn.discordapp.com/emojis/823695577288015902.png?v=1")
-        .setThumbnail("https://cdn.discordapp.com/emojis/821872253682581565.png?v=1")
+        .setThumbnail("https://cdn.discordapp.com/attachments/815017148912762890/830778037482029066/pepe.png")
         .setDescription('\n> <:member:822198810306412594> **Witaj!** Jestem prywatnym botem Serwera **Dark JET**\n\n> <a:BotDeveloper:823693389459226716>｜**Komendy Developerskie:**\n> `eval`\n\n> <:shield:823693241429655583>｜**Komendy Administratorskie:**\n> `say`**,**`ankieta`\n\n> <:member:822198810306412594>｜**Komendy dostępne dla członków:**\n> `uptime`**,**`link`**,**`ping`**,**`avatar`**,**`suggest`')
         .setFooter(`Wykonałem dla: ${message.author.tag}`, message.author.displayAvatarURL( ({dynamic: true})))
         message.channel.startTyping();
