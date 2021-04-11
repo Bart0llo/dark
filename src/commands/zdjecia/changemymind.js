@@ -14,7 +14,7 @@ module.exports = {
         message.delete({ timeout: 3000 })
     });
 
-    const sendMsg = await message.channel.send("⚙ Przetwarzanie obrazu..");
+    const sendMsg = await message.channel.send("<a:loading:824403112907374602> Przetwarzanie obrazu..");
 
     const data = await fetch(
       `https://nekobot.xyz/api/imagegen?type=changemymind&text=${text}`
