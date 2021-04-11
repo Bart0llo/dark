@@ -22,7 +22,7 @@ module.exports = {
 
     sendMsg.delete();
     const embed = new MessageEmbed()
-      .setFooter(message.author.username)
+      .setFooter(`Wykonałem dla: ${message.author.tag}`, message.author.displayAvatarURL( ({dynamic: true})))
       .setColor(message.member.displayHexColor)
       .setDescription(
         `[Kliknij tutaj, jeśli nie udało się załadować obrazu.](${data.message})`
