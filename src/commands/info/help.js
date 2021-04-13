@@ -25,7 +25,7 @@ module.exports = {
         .setColor("#00FF00")
         .setAuthor(`Help Menu`, "https://cdn.discordapp.com/emojis/823695577288015902.png?v=1")
         .setThumbnail("https://cdn.discordapp.com/attachments/815017148912762890/831560054574284910/GIF-210119_103703_56.jpg")
-        .setDescription('\n> <:member:822198810306412594> **Witaj!** Jestem prywatnym botem Serwera **Dark.Com**\n\n> <a:BotDeveloper:823693389459226716>｜**Komendy Developerskie:**\n> `eval`\n\n> <:shield:823693241429655583>｜**Komendy Administratorskie:**\n> `say`**,**`ankieta`\n\n> <:member:822198810306412594>｜**Komendy dostępne dla członków:**\n> `uptime`**,**`link`**,**`avatar`**,**`suggest`**,**`changemymind`')
+        .setDescription('\n> <:member:822198810306412594> **Witaj!** Jestem prywatnym botem Serwera **Dark.Com**\n\n> <a:BotDeveloper:823693389459226716>｜**Komendy Developerskie:**\n> `eval`\n\n> <:shield:823693241429655583>｜**Komendy Administratorskie:**\n> `say`**,**`ankieta`\n\n> <:member:822198810306412594>｜**Komendy dostępne dla członków:**\n> `uptime`**,**`link`**,**`avatar`**,**`suggest`**,**`changemymind`**,**`theme`**,**`nakladka`')
         .setFooter(`Wykonałem dla: ${message.author.tag}`, message.author.displayAvatarURL( ({dynamic: true})))
         message.channel.startTyping();
         setTimeout(function(){
