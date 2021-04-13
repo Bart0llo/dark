@@ -44,7 +44,7 @@ module.exports = async (client) => {
         
           
           setInterval(() => {
-            activities[2] = { name: `@Dark JET 😍`, type: 'WATCHING' }; 
+            activities[2] = { name: `@Dark.Com 😍`, type: 'WATCHING' }; 
             activities[3] = { name: `Czasami jestem przydatny hehe.`, type: 'WATCHING' }; 
             activities[4] = { name: `Cześć mogę cię zjeść?`, type: 'WATCHING' };
             if (activity > 4) activity = 0;
