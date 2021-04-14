@@ -19,7 +19,7 @@ let comment = args.join(" ");
     .setFooter(`Zaznacz reakcję!`)
     .setTimestamp()
 
-    let channel = client.channels.cache.get("795774501345689684");
+    let channel = client.channels.cache.get("827663462708674600");
     if(!channel) return errors.noChannel(message, "Nie znaleziono kanału.")
   
   const send = await channel.send(ideaEmbed)
