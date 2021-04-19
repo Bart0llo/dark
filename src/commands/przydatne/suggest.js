@@ -11,7 +11,7 @@ module.exports = {
     usage: "suggest <text>",
     ownerOnly: false,
     run: async (client, message, args, user, text, prefix) => {
-    const channel = message.guild.channels.cache.find(c => c.name === '💡┇propozycje')
+    const channel = message.guild.channels.cache.find(c => c.name === '₊˚≠∫💡∫≠・propozycje')
     if(!channel) return message.channel.send('<a:nope:821871620502323280> Nie znalazłem kanału');
 
     let messageArgs = args.join(' ');
